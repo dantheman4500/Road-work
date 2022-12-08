@@ -1,11 +1,48 @@
-import React from 'react';
-// First we import our Hello component from our components folder.
+// import statement for Chakra UI components
+import {
+  ChakraProvider,
+  Box,
+  Text,
+  Link,
+  VStack,
+  Code,
+  Grid,
+  theme,
+} from '@chakra-ui/react';
+import { ColorModeSwitcher } from './ColorModeSwitcher';
 import Hello from './components/Hello';
+import { Logo } from './Logo';
 
-// React apps typically have a single App component at the very top that can reference other React components.
-// This component, `App`, is our main component that is importing `Hello` and rendering it in the return method.
 function App() {
-  return <Hello />;
+  return (
+    <ChakraProvider theme={theme}>
+      <Hello />
+      <Box textAlign="center" fontSize="xl">
+        <Grid minH="100vh" p={3}>
+          <ColorModeSwitcher justifySelf="flex-end" />
+          <VStack spacing={8}>
+            <Logo h="40vmin" pointerEvents="none" />
+            <Text>
+
+              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
+            </Text>
+            <Link
+              color="teal.500"
+              href="https://chakra-ui.com"
+              fontSize="2xl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn Chakra
+            </Link>
+            <Box as='button' borderRadius='md' bg='tomato' color='white' px={4} h={8}>
+              Button
+            </Box>
+          </VStack>
+        </Grid>
+      </Box>
+    </ChakraProvider>
+  );
 }
 
 export default App;
