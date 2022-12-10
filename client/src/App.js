@@ -1,3 +1,14 @@
+import React from 'react';
+
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 // import statement for Chakra UI components
 import {
   ChakraProvider,
@@ -11,41 +22,69 @@ import {
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import Hello from './components/Hello';
-import Profile from './components/Profile';
-import PlacementExample from './components/ProfileMenu'
-import { Logo } from './Logo';
+import Profile from './pages/Profile';
+import Login from "./pages/Login"
+
+
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem('id_token');
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
+    <ApolloProvider client={client}>
+      <ChakraProvider theme={theme}>
       <Hello />
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            {/* <Logo h="40vmin" pointerEvents="none" /> */}
-            {/* <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text> */}
-            {/* <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link> */}
-            {/* <Box as='button' borderRadius='md' bg='tomato' color='white' px={4} h={8}>
-              Button
-            </Box> */}
-            <Profile />
-            <PlacementExample />
-          </VStack>
-        </Grid>
-      </Box>
-    </ChakraProvider>
+        <Router>
+          <Box textAlign="center" fontSize="xl">
+            <Grid minH="100vh" p={3}>
+              <ColorModeSwitcher justifySelf="flex-end" />
+              <VStack spacing={8}>
+                  <div className="flex-column justify-flex-start min-100-vh">
+                    <div className="container">
+                      <Routes>
+                        <Route 
+                          path="/" 
+                          element={<Login/>} 
+                        />
+                        <Route 
+                          path="/login" 
+                          element={<Login/>} 
+                        />
+                        <Route 
+                          path="/profile" 
+                          element={<Profile/>} 
+                        />                      
+                      </Routes>
+                    </div>
+                  </div>
+              </VStack>
+            </Grid>
+          </Box>
+        </Router>
+      </ChakraProvider>
+    </ApolloProvider>
   );
 }
 
 export default App;
+
