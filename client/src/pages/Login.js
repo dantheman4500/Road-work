@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
+
 import {
   FormControl,
   FormLabel,
@@ -53,7 +54,7 @@ const Login = (props) => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <Heading>Login</Heading>          
+          <Heading>Login</Heading>
           <div className="card-body">
             {data ? (
               <p>
@@ -64,7 +65,7 @@ const Login = (props) => {
               <form onSubmit={handleFormSubmit}>
                 <FormControl>
                   <FormLabel>Email address</FormLabel>
-                  <Input 
+                  <Input
                     className="form-input"
                     placeholder="Your email"
                     name="email"
@@ -76,28 +77,28 @@ const Login = (props) => {
                 </FormControl>
 
                 <FormControl>
-                <FormLabel>Email address</FormLabel>
-                <Input 
-                  className="form-input"
-                  placeholder="***************"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <FormHelperText> Make Sure you don't forget your password.</FormHelperText>
+                  <FormLabel>Password</FormLabel>
+                  <Input
+                    className="form-input"
+                    placeholder="***************"
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                  />
+                  <FormHelperText> Make Sure you don't forget your password.</FormHelperText>
                 </FormControl>
-                <br/>
+                <br />
                 <Button
-                size='md'
-                height='48px'
-                width='200px'
-                border='2px'
-                borderColor='tomato'
-                type="submit"
-              >
-                Login
-              </Button>
+                  size='md'
+                  height='48px'
+                  width='200px'
+                  border='2px'
+                  borderColor='tomato'
+                  type="submit"
+                >
+                  Login
+                </Button>
               </form>
             )}
 

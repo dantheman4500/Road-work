@@ -21,7 +21,7 @@ import {
   theme,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-import Hello from './components/Hello';
+import Banner from './components/Banner';
 import Profile from './pages/Profile';
 import Login from "./pages/Login"
 
@@ -53,7 +53,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <ChakraProvider theme={theme}>
-      <Hello />
+      <Banner />
         <Router>
           <Box textAlign="center" fontSize="xl">
             <Grid minH="100vh" p={3}>
