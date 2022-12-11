@@ -1,34 +1,31 @@
 import React from 'react';
-
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink,
+  createHttpLink
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 // import statement for Chakra UI components
 import {
   ChakraProvider,
   Box,
-  Text,
-  Link,
   VStack,
-  Code,
   Grid,
   theme,
 } from '@chakra-ui/react';
+
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import Banner from './components/Banner';
 import Profile from './pages/Profile';
 import Login from "./pages/Login"
-
+import Friends from './pages/Friends';
+import SingleFriend from './pages/SingleFriend';
 
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: '/graphql'
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -73,7 +70,15 @@ function App() {
                         <Route 
                           path="/profile" 
                           element={<Profile/>} 
-                        />                      
+                        />
+                        <Route 
+                          path="/friends" 
+                          element={<Friends/>} 
+                        />
+                        <Route 
+                          path="/friends/:profileId" 
+                          element={<SingleFriend/>} 
+                        />                       
                       </Routes>
                     </div>
                   </div>

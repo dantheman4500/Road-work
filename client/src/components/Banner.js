@@ -34,6 +34,12 @@ function Banner() {
           </Link>
         </Text>
       </Box>
+      <Box>
+        <Text>
+          <Link href='/friends'> View all Friends *** REMOVE LATER *****
+          </Link>
+        </Text>
+      </Box>
     </div>
   );
 }
