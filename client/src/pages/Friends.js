@@ -1,12 +1,11 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-
-import ProfileList from '../components/ProfileList';
-
+import FriendList from '../components/FriendList';
 import { QUERY_PROFILES } from '../utils/queries';
 
-const Home = () => {
+const Friends = () => {
   const { loading, data } = useQuery(QUERY_PROFILES);
+  console.log(data)
   const profiles = data?.profiles || [];
 
   return (
@@ -16,9 +15,9 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ProfileList
+            <FriendList
               profiles={profiles}
-              title="Here's the current roster of friends..."
+              title="Meet New Friends!"
             />
           )}
         </div>
@@ -27,4 +26,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Friends;

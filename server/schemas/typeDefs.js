@@ -6,6 +6,8 @@ const typeDefs = gql`
     name: String
     email: String
     password: String
+    image: String
+    interests: [String]
   }
 
   type Auth {
