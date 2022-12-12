@@ -19,6 +19,14 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  image: {
+    type: String
+  },
+  interests: [
+    {
+      type: String
+    }
+  ]
 });
 
 //* set up pre-save middleware to create password
