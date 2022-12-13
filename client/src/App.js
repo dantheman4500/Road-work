@@ -22,6 +22,7 @@ import Profile from './pages/Profile';
 import Login from "./pages/Login"
 import Friends from './pages/Friends';
 import SingleFriend from './pages/SingleFriend';
+import SignUp from './pages/signUp';
 
 
 const httpLink = createHttpLink({
@@ -78,7 +79,11 @@ function App() {
                         <Route 
                           path="/friends/:profileId" 
                           element={<SingleFriend/>} 
-                        />                       
+                        />
+                        <Route 
+                          path="/signUp" 
+                          element={<SignUp/>} 
+                        />                         
                       </Routes>
                     </div>
                   </div>
