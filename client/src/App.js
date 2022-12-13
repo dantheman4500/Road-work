@@ -22,6 +22,7 @@ import Profile from './pages/Profile';
 import Login from "./pages/Login"
 import Friends from './pages/Friends';
 import SingleFriend from './pages/SingleFriend';
+import SearchBar from './components/SearchBar';
 
 
 const httpLink = createHttpLink({
@@ -50,38 +51,42 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <ChakraProvider theme={theme}>
-      <Banner />
+        <Banner />
         <Router>
           <Box textAlign="center" fontSize="xl">
             <Grid minH="100vh" p={3}>
               <ColorModeSwitcher justifySelf="flex-end" />
               <VStack spacing={8}>
-                  <div className="flex-column justify-flex-start min-100-vh">
-                    <div className="container">
-                      <Routes>
-                        <Route 
-                          path="/" 
-                          element={<Login/>} 
-                        />
-                        <Route 
-                          path="/login" 
-                          element={<Login/>} 
-                        />
-                        <Route 
-                          path="/profile" 
-                          element={<Profile/>} 
-                        />
-                        <Route 
-                          path="/friends" 
-                          element={<Friends/>} 
-                        />
-                        <Route 
-                          path="/friends/:profileId" 
-                          element={<SingleFriend/>} 
-                        />                       
-                      </Routes>
-                    </div>
+                <div className="flex-column justify-flex-start min-100-vh">
+                  <div className="container">
+                    <Routes>
+                      <Route
+                        path="/"
+                        element={<Login />}
+                      />
+                      <Route
+                        path="/login"
+                        element={<Login />}
+                      />
+                      <Route
+                        path="/profile"
+                        element={<Profile />}
+                      />
+                      <Route
+                        path="/friends"
+                        element={<Friends />}
+                      />
+                      <Route
+                        path="/friends/:profileId"
+                        element={<SingleFriend />}
+                      />
+                      <Route
+                        path="/test"
+                        element={<SearchBar />}
+                      />
+                    </Routes>
                   </div>
+                </div>
               </VStack>
             </Grid>
           </Box>
