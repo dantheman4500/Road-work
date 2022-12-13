@@ -21,8 +21,14 @@ const typeDefs = gql`
     me: Profile
   }
 
+  type Checkout {
+    session: ID
+  }
+
+
   type Mutation {
     login(email: String!, password: String!): Auth
+    checkout(products: [ID]!): Checkout
   }
 `;
 
