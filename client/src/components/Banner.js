@@ -40,6 +40,12 @@ function Banner() {
           </Link>
         </Text>
       </Box>
+      <Box>
+        <Text>
+          <Link href='/Profile'> Log Out *** REMOVE LATER *****
+          </Link>
+        </Text>
+      </Box>
     </div>
   );
 }
