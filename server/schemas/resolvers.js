@@ -18,6 +18,12 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    findProfileByName: async (parent, { profileName }) => {
+      return Profile.findOne({ name: profileName });
+    },
+    findProfileByInterest: async (parent, { profileInterest }) => {
+      return Profile.find({ interests: profileInterest });
+    },
   },
 
   Mutation: {
