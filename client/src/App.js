@@ -23,25 +23,21 @@ import Profile from './pages/Profile';
 import Login from "./pages/Login"
 // import Friends from './pages/Friends';
 import SingleFriend from './pages/SingleFriend';
-
 import Donate from './pages/Donate';
 import Success from './pages/Success';
 import SearchBar from './components/SearchBar';
 import SignUp from './pages/signUp';
 import ProfileUpdate from './pages/ProfileUpdate';
 // import UserProfile from './components/UserProfile';
+import SideBar from './components/Sidebar';
 import Home from './pages/Home';
-
-
 
 const httpLink = createHttpLink({
   uri: '/graphql'
 });
 
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
-  // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
@@ -61,6 +57,7 @@ function App() {
     <ApolloProvider client={client}>
       <ChakraProvider theme={theme}>
         <Banner />
+        <SideBar />
         <Router>
           <Box textAlign="center" fontSize="xl">
             <Grid minH="100vh" p={3}>

@@ -25,7 +25,7 @@ const resolvers = {
       const url = new URL(context.headers.referer).origin;
       const line_items = [];
       const products = [...args.products];
-      
+
       console.log(products);
       // have an array of products
       // array has name, description, id, and price
@@ -56,10 +56,9 @@ const resolvers = {
         cancel_url: `${url}/`
       });
 
-        return { session: session.id };
-        }
-      }
+      return { session: session.id };
     }
+  },
   Mutation: {
     login: async (parent, { email, password }) => {
       const profile = await Profile.findOne({ email });
@@ -78,6 +77,6 @@ const resolvers = {
       return { token, profile };
     }
   }
-
+}
 
 module.exports = resolvers;

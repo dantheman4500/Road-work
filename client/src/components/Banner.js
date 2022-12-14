@@ -21,50 +21,7 @@ function Banner() {
             </Text>
           </Center>
         </Box>
-{/* These are our future navigation/drop down menu buttons */}
       </Center>
-      <Box>
-        <Text>
-          <Link href='/Profile'> Go To Profile Page 
-          </Link>
-        </Text>
-      </Box>
-      <Box>
-        <Text>
-        <Link href='/profileUpdate'>Edit Profile
-        </Link>
-        </Text>
-      </Box>
-      <Box>
-        <Text>
-        <Link href='/'> Home 
-        </Link>
-        </Text>
-      </Box>
-      <Box>
-        <Text>
-        <Link href='/friends'> View all Friends 
-        </Link>
-        </Text>
-      </Box>
-      <Box>
-        <Text>
-        <Link href='/donate'> Donate 
-        </Link>
-        </Text>
-        </Box>
-      <Box>
-        <Text>
-        <Link href='/Home'> Log Out 
-        </Link>
-        </Text>
-      </Box>
-      <Box>
-        <Text>
-        <Link href='/SignUp'> Sign Up 
-        </Link>
-        </Text>
-      </Box>
     </div>
   );
 }

@@ -1,29 +1,38 @@
 import React from 'react';
-
+// import SideBar from '../components/Sidebar';
+import auth from '../utils/auth';
+import { useQuery } from '@apollo/client';
+import { QUERY_SINGLE_PROFILE } from '../utils/queries';
 // imported from chakra UI
 import {
   Box,
   Image,
-  List,
-  Link,
-  ListItem,
   Center,
   Divider,
-  Button,
   Flex,
   Heading,
   Stack,
-  Text,
-  useBreakpointValue,
-  useColorModeValue,
-  SimpleGrid
+  Text
 } from '@chakra-ui/react';
 
 function Profile() {
+  let userProfile = auth.getProfile();
+  let profileId = userProfile.data._id;
+  const { loading, data } = useQuery(QUERY_SINGLE_PROFILE, {
+    variables: { profileId: profileId },
+  });
+  const profile = data?.profile || {};
+  console.log(profile.interests)
+
+  if (loading) {
+    return <div>Loading ... Please Wait a Moment</div>
+  }
+
   return (
     <div>
+      
       <Center>
-        <Box bg='orange.400' w='50%' p={4} color='white' borderRadius='full'>
+        <Box bg='orange.300' w='50%' p={4} borderRadius='full'>
           Your Profile
         </Box>
       </Center>
@@ -40,14 +49,13 @@ function Profile() {
                 _after={{
                   content: "''",
                   width: 'full',
-                  height: useBreakpointValue({ base: '20%', md: '30%' }),
                   position: 'absolute',
                   bottom: 1,
                   left: 0,
                   bg: 'orange.400',
                   zIndex: -1,
                 }}>
-                Placeholder for name
+                {profile.name}
               </Text>
               <br />{' '}
               <Text color={'orange.400'} as={'span'}>
@@ -58,31 +66,25 @@ function Profile() {
               The project board is an exclusive resource for contract work. It's
               perfect for freelancers, agencies, and moonlighters.
             </Text>
-            <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
+            <Stack direction={{ base: 'column', md: 'row' }} spacing={4} align={'center'} justify={'center'}>
               <Box>
                 <Text
                   fontSize={{ base: '16px', lg: '18px' }}
-                  color={useColorModeValue('orange.500', 'orange.300')}
+                  color={'orange.300'}
                   fontWeight={'500'}
                   textTransform={'uppercase'}
-                  mb={'4'}>
+                  mb={'14'}>
                   Interests
                 </Text>
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                  <List spacing={2}>
-                    <ListItem>Sports</ListItem>
-                    <ListItem>Coding</ListItem>{' '}
-                    <ListItem>Hiking</ListItem>
-                  </List>
-                  <List spacing={2}>
-                    <ListItem>Coffee</ListItem>
-                    <ListItem>Long walks</ListItem>
-                    <ListItem>Reading</ListItem>
-                  </List>
-                </SimpleGrid>
+                {profile.interests.map((interest) => <Text
+                  fontSize={{ base: '16px', lg: '18px' }}
+                  fontWeight={'500'}
+                  textTransform={'uppercase'}
+                  mb={'10'}
+                >{interest}</Text>)}
               </Box>
             </Stack>
-            <Link href='/ProfileUpdate'><Button rounded={'full'}>Edit your interests</Button></Link>
+            {/* <Link href='/ProfileUpdate'><Button rounded={'full'}>Edit your interests</Button></Link> */}
           </Stack>
         </Flex>
         <Flex flex={1}>

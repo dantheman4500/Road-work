@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
-
 // import { updateUser } from '../components/UserProfile';
 import { useMutation } from '@apollo/client';
 // import { USER_UPDATE_REQUEST } from '../utils/actions';
@@ -8,9 +7,7 @@ import { UPDATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 // imported from chakra UI
 import {
-  Alert,
   Box,
-  Image,
   Avatar,
   Link,
   Input,
