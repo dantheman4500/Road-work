@@ -27,7 +27,7 @@ import SearchBar from './components/SearchBar';
 import SignUp from './pages/signUp';
 
 import ProfileUpdate from './pages/ProfileUpdate';
-import UserProfile from './components/UserProfile';
+// import UserProfile from './components/UserProfile';
 
 
 import Home from './pages/Home';
