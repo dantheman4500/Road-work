@@ -29,9 +29,8 @@ import SearchBar from './components/SearchBar';
 import SignUp from './pages/signUp';
 import ProfileUpdate from './pages/ProfileUpdate';
 // import UserProfile from './components/UserProfile';
+import SideBar from './components/Sidebar';
 import Home from './pages/Home';
-
-
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -58,6 +57,7 @@ function App() {
     <ApolloProvider client={client}>
       <ChakraProvider theme={theme}>
         <Banner />
+        <SideBar />
         <Router>
           <Box textAlign="center" fontSize="xl">
             <Grid minH="100vh" p={3}>

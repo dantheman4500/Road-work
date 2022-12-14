@@ -12,15 +12,18 @@ import {
     Text,
     Link
 } from '@chakra-ui/react';
-
+import auth from '../utils/auth';
 const styles = {
-    float: "right"
+    display: "flex-box",
+    float: "left",
+    flexWrap: "wrap",
+    margin: "1%"
 }
 
 function SideBar() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
-
+    if (auth.loggedIn) {
     return (
         <>
             <Button ref={btnRef} bg='orange.300' onClick={onOpen} style={styles}>
@@ -28,7 +31,7 @@ function SideBar() {
             </Button>
             <Drawer
                 isOpen={isOpen}
-                placement='right'
+                placement='left'
                 onClose={onClose}
                 finalFocusRef={btnRef}
             >
@@ -56,6 +59,9 @@ function SideBar() {
                 </DrawerContent>
             </Drawer>
         </>
+    )
+    } else return (
+        <h2>Log In First</h2>
     )
 }
 
