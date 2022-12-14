@@ -77,7 +77,7 @@ function App() {
                         />
                         <Route 
                           path="/friends" 
-                          element={<Friends/>} 
+                          element={<SearchBar/>} 
                         />
                         <Route 
                           path="/friends/:profileId" 
@@ -94,7 +94,6 @@ function App() {
                       </Routes>
                     </div>
                   </div>
-                </div>
               </VStack>
             </Grid>
           </Box>

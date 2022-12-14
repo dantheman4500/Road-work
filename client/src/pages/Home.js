@@ -37,7 +37,7 @@ function Home() {
             objectFit={'cover'}
             borderRadius='full'
             src={
-              'https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'
+              'https://images.unsplash.com/photo-1629713014426-156da15c7571?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'
             }
           />
         </Flex>
