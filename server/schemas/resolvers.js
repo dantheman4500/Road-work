@@ -75,6 +75,12 @@ const resolvers = {
 
       const token = signToken(profile);
       return { token, profile };
+    },
+
+    createProfile: async (parent, args) => {
+      const profile = await Profile.create(args);
+      const token = signToken(profile);
+      return { token, profile };
     }
   }
 }

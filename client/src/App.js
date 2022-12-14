@@ -99,15 +99,10 @@ function App() {
                         path='/success'
                         element={<Success/>}
                         />                   
-
                         <Route 
                           path="/signUp" 
                           element={<SignUp/>} 
-                        />
-                        <Route 
-                          path="/Home" 
-                          element={<Home/>} 
-                        />                         
+                        />                       
                       </Routes>
                     </div>
                   </div>
