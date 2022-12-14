@@ -8,9 +8,11 @@ import { UPDATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 // imported from chakra UI
 import {
+  Alert,
   Box,
   Image,
   Avatar,
+  Link,
   Input,
   FormControl,
   FormLabel,
@@ -69,11 +71,11 @@ const UpdateProfile = (props) => {
   return (
     <div>
       <Center>
-        <Box bg='orange.400' w='80%' p={4} borderRadius='full'>
+        <Box bg='orange.400' w='100%' p={4} borderRadius='full'>
           Update Your Profile
         </Box>
       </Center>
-      <Stack direction='row' h='10px' p={4}>
+      <Stack direction='row' h='5px'p={4}>
         <Divider />
       </Stack>
       <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
@@ -123,7 +125,6 @@ const UpdateProfile = (props) => {
             <FormControl>
                 <FormLabel>Email:</FormLabel>
                 <Input
-
                     onChange={handleChange}
                     className="form-input"
                     placeholder="New Email"
@@ -134,7 +135,6 @@ const UpdateProfile = (props) => {
             <FormControl>
                 <FormLabel>Password:</FormLabel>
                 <Input
-                    
                     onChange={handleChange}
                     className="form-input"
                     placeholder="New password"
@@ -164,9 +164,9 @@ const UpdateProfile = (props) => {
                     }}
                 />
             </FormControl>
-            <Button rounded={'full'} type='submit'>
+            <Link to='/Profile'><Button rounded={'full'} type='submit'>
                 Save Profile
-            </Button>
+            </Button></Link>
         {/* </Form> */}
           </Stack>
         </Flex>
