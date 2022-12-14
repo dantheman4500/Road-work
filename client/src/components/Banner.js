@@ -1,4 +1,5 @@
 import React from 'react';
+
 // imported from chakra UI
 import { Box, Image, Text, Center, Link } from '@chakra-ui/react'
 
@@ -30,7 +31,7 @@ function Banner() {
       </Box>
       <Box>
         <Text>
-          <Link href='/'> Home *** REMOVE LATER *****
+          <Link href='/Home'> Home *** REMOVE LATER *****
           </Link>
         </Text>
       </Box>

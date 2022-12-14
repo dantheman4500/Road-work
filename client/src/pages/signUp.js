@@ -35,6 +35,7 @@ const SignUp = (props) => {
         password: formState.password,
       },
     });
+
     // Logic to authenticate user login
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
@@ -70,8 +71,12 @@ const SignUp = (props) => {
             <Stack spacing={4}>
               <FormControl id="email">
                 <FormLabel>Email address</FormLabel>
-                <Input type="email" 
-                        value={formState.email}/>
+                <Input 
+                    name="email"
+                    type="email" 
+                    value={formState.email}
+                    onChange={handleChange}
+                    />
               </FormControl>
               <FormControl id="password">
                 <FormLabel>Password</FormLabel>
