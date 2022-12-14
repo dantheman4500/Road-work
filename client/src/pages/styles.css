@@ -1,0 +1,23 @@
+.backButton {
+    max-width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 14vh;
+
+    left: 41.69%;
+    
+}
+
+
+
+.btn:hover{
+    border:solid orange 2.5px;
+    border-radius: 12%;
+}
+
+.btn{
+    background-color: orange;
+}
+

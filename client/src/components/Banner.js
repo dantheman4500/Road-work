@@ -40,6 +40,12 @@ function Banner() {
           </Link>
         </Text>
       </Box>
+      <Box>
+        <Text>
+          <Link href='/donate'> go to donation Page *** REMOVE LATER *****
+          </Link>
+        </Text>
+      </Box>
     </div>
   );
 }

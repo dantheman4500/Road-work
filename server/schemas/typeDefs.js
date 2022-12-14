@@ -25,10 +25,19 @@ const typeDefs = gql`
     session: ID
   }
 
+  input Product{
+    name: String
+    description: String
+    price: Int
+  }
+
+  type Query{
+    checkout(products: [Product]!): Checkout
+  }
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    checkout(products: [ID]!): Checkout
+    
   }
 `;
 

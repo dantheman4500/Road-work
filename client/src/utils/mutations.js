@@ -22,6 +22,23 @@ export const ADD_PROFILE = gql`
   }
 `;
 
+export const ADD_ORDER = gql`
+  mutation addOrder($products: [ID]!) {
+    addOrder(products: $products) {
+      products{
+        _id
+        name
+        description
+        price
+        quantity
+        category {
+          name
+        }
+      }
+    }
+  }
+`
+
 export const ADD_SKILL = gql`
   mutation addSkill($profileId: ID!, $skill: String!) {
     addSkill(profileId: $profileId, skill: $skill) {

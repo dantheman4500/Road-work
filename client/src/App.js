@@ -22,6 +22,8 @@ import Profile from './pages/Profile';
 import Login from "./pages/Login"
 import Friends from './pages/Friends';
 import SingleFriend from './pages/SingleFriend';
+import Donate from './pages/Donate';
+import Success from './pages/Success';
 
 
 const httpLink = createHttpLink({
@@ -78,7 +80,15 @@ function App() {
                         <Route 
                           path="/friends/:profileId" 
                           element={<SingleFriend/>} 
-                        />                       
+                        />
+                        <Route
+                        path='/donate'
+                        element={<Donate/>}
+                        />
+                        <Route
+                        path='/success'
+                        element={<Success/>}
+                        />                   
                       </Routes>
                     </div>
                   </div>

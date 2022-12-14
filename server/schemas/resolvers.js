@@ -20,11 +20,15 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     checkout: async (parent, args, context) => {
+      // const url = new URL("https://google.com");
+      console.log(context.headers.referer);
       const url = new URL(context.headers.referer).origin;
-      const order = new order({ products: args.products });
       const line_items = [];
-
-      const { products } = await order.populate('products');
+      const products = [...args.products];
+      
+      console.log(products);
+      // have an array of products
+      // array has name, description, id, and price
 
       for (let i = 0; i < products.length; i++) {
         const product = await stripe.products.create({
