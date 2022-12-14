@@ -23,6 +23,14 @@ export const QUERY_SINGLE_PROFILE = gql`
   }
 `;
 
+export const QUERY_CHECKOUT = gql`
+  query Checkout($products: [Product]!) {
+    checkout(products: $products) {
+      session
+    }
+  }
+`;
+
 export const QUERY_ME = gql`
   query me {
     me {

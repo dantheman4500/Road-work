@@ -23,14 +23,15 @@ import Profile from './pages/Profile';
 import Login from "./pages/Login"
 // import Friends from './pages/Friends';
 import SingleFriend from './pages/SingleFriend';
+
+import Donate from './pages/Donate';
+import Success from './pages/Success';
 import SearchBar from './components/SearchBar';
 import SignUp from './pages/signUp';
-
 import ProfileUpdate from './pages/ProfileUpdate';
 // import UserProfile from './components/UserProfile';
-
-
 import Home from './pages/Home';
+
 
 
 const httpLink = createHttpLink({
@@ -93,6 +94,15 @@ function App() {
                           path="/friends/:profileId" 
                           element={<SingleFriend/>} 
                         />
+                        <Route
+                        path='/donate'
+                        element={<Donate/>}
+                        />
+                        <Route
+                        path='/success'
+                        element={<Success/>}
+                        />                   
+
                         <Route 
                           path="/signUp" 
                           element={<SignUp/>} 

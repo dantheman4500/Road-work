@@ -52,6 +52,7 @@ function Banner() {
       </Box>
       <Box>
         <Text>
+          <Link href='/donate'> go to donation Page *** REMOVE LATER ***** </Link>
           <Link href='/Home'> Log Out *** REMOVE LATER *****
           </Link>
         </Text>

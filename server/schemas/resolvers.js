@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Profile } = require('../models');
 const { signToken } = require('../utils/auth');
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc')
 
 const resolvers = {
   Query: {
@@ -18,6 +19,15 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    checkout: async (parent, args, context) => {
+      // const url = new URL("https://google.com");
+      console.log(context.headers.referer);
+      const url = new URL(context.headers.referer).origin;
+      const line_items = [];
+      const products = [...args.products];
+      console.log(products);
+      // have an array of products
+      // array has name, description, id, and price
     findProfileByName: async (parent, { profileName }) => {
       return Profile.findOne({ name: profileName });
     },
@@ -26,6 +36,37 @@ const resolvers = {
     },
   },
 
+
+      for (let i = 0; i < products.length; i++) {
+        const product = await stripe.products.create({
+          name: products[i].name,
+          description: products[i].description,
+        });
+
+        const price = await stripe.prices.create({
+          product: product.id,
+          unit_amount: products[i].price * 100,
+          currency: 'usd',
+        });
+
+        line_items.push({
+          price: price.id,
+          quantity: 1
+        });
+      }
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items,
+        mode: 'payment',
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`
+      });
+
+        return { session: session.id };
+        }
+      }
+    }
   Mutation: {
     login: async (parent, { email, password }) => {
       const profile = await Profile.findOne({ email });
@@ -42,8 +83,8 @@ const resolvers = {
 
       const token = signToken(profile);
       return { token, profile };
-    },
-  },
-};
+    }
+  }
+
 
 module.exports = resolvers;
