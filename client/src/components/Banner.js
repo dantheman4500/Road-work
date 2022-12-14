@@ -30,6 +30,11 @@ function Banner() {
       </Box>
       <Box>
         <Text>
+          <Link href='/profile-update'>Edit Profile</Link>
+        </Text>
+      </Box>
+      <Box>
+        <Text>
           <Link href='/'> Home *** REMOVE LATER *****
           </Link>
         </Text>
