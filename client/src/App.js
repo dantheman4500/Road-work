@@ -20,7 +20,7 @@ import { ColorModeSwitcher } from './ColorModeSwitcher';
 import Banner from './components/Banner';
 import Profile from './pages/Profile';
 import Login from "./pages/Login"
-import Friends from './pages/Friends';
+// import Friends from './pages/Friends';
 import SingleFriend from './pages/SingleFriend';
 import SearchBar from './components/SearchBar';
 
@@ -74,15 +74,11 @@ function App() {
                       />
                       <Route
                         path="/friends"
-                        element={<Friends />}
+                        element={<SearchBar />}
                       />
                       <Route
                         path="/friends/:profileId"
                         element={<SingleFriend />}
-                      />
-                      <Route
-                        path="/test"
-                        element={<SearchBar />}
                       />
                     </Routes>
                   </div>
