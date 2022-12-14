@@ -73,7 +73,7 @@ const Login = (props) => {
                     value={formState.email}
                     onChange={handleChange}
                   />
-                  <FormHelperText>We'll never share your email.</FormHelperText>
+                <FormHelperText>We'll never share your email.</FormHelperText>
                 </FormControl>
 
                 <FormControl>

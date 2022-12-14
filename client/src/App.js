@@ -69,7 +69,7 @@ function App() {
                   <div className="flex-column justify-flex-start min-100-vh">
                     <div className="container">
                       <Routes>
-{/* This first route denotes the loading/landing page */}
+{/* This first route denotes the loading/landing page, the first page a user sees */}
                         <Route 
                           path="/" 
                           element={<Home/>} 
@@ -83,7 +83,7 @@ function App() {
                           element={<Profile/>} 
                         />
                         <Route 
-                          path="/profile-update" 
+                          path="/profileupdate" 
                           element={<ProfileUpdate/>} 
                         />
                         <Route 
