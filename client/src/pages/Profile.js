@@ -5,6 +5,7 @@ import {
   Box,
   Image,
   List,
+  Link,
   ListItem,
   Center,
   Divider,
@@ -81,7 +82,7 @@ function Profile() {
                 </SimpleGrid>
               </Box>
             </Stack>
-            <Button rounded={'full'}>Edit your interests</Button>
+            <Link href='/ProfileUpdate'><Button rounded={'full'}>Edit your interests</Button></Link>
           </Stack>
         </Flex>
         <Flex flex={1}>

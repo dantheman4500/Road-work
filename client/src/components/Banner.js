@@ -17,50 +17,52 @@ function Banner() {
           </Center>
           <Center>
             <Text color={'black'} as='b' >
-              Bee MyFriend
+              Bee My Friend
             </Text>
           </Center>
         </Box>
-
+{/* These are our future navigation/drop down menu buttons */}
       </Center>
       <Box>
         <Text>
-          <Link href='/Profile'> Go To Profile Page *** REMOVE LATER *****
+          <Link href='/Profile'> Go To Profile Page 
           </Link>
         </Text>
       </Box>
       <Box>
         <Text>
-
-          <Link href='/profile-update'>Edit Profile</Link>
+        <Link href='/profileUpdate'>Edit Profile
+        </Link>
         </Text>
       </Box>
       <Box>
         <Text>
-          <Link href='/'> Home *** REMOVE LATER *****</Link>
-
-          <Link href='/Home'> Home *** REMOVE LATER *****
-
-          </Link>
+        <Link href='/'> Home 
+        </Link>
         </Text>
       </Box>
       <Box>
         <Text>
-          <Link href='/friends'> View all Friends *** REMOVE LATER *****
-          </Link>
+        <Link href='/friends'> View all Friends 
+        </Link>
         </Text>
       </Box>
       <Box>
         <Text>
-          <Link href='/donate'> go to donation Page *** REMOVE LATER ***** </Link>
-          <Link href='/Home'> Log Out *** REMOVE LATER *****
-          </Link>
+        <Link href='/donate'> Donate 
+        </Link>
+        </Text>
+        </Box>
+      <Box>
+        <Text>
+        <Link href='/Home'> Log Out 
+        </Link>
         </Text>
       </Box>
-            <Box>
+      <Box>
         <Text>
-          <Link href='/SignUp'> SignUp *** REMOVE LATER *****
-          </Link>
+        <Link href='/SignUp'> Sign Up 
+        </Link>
         </Text>
       </Box>
     </div>
