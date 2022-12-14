@@ -25,7 +25,13 @@ import Login from "./pages/Login"
 import SingleFriend from './pages/SingleFriend';
 import SearchBar from './components/SearchBar';
 import SignUp from './pages/signUp';
+
+import ProfileUpdate from './pages/ProfileUpdate';
+import UserProfile from './components/UserProfile';
+
+
 import Home from './pages/Home';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -74,6 +80,10 @@ function App() {
                         <Route 
                           path="/profile" 
                           element={<Profile/>} 
+                        />
+                        <Route 
+                          path="/profile-update" 
+                          element={<ProfileUpdate/>} 
                         />
                         <Route 
                           path="/friends" 
