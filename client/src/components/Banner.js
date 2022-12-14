@@ -37,7 +37,7 @@ function Banner() {
       </Box>
       <Box>
         <Text>
-          <Link href='/'> Home *** REMOVE LATER *****
+          <Link href='/'> Home *** REMOVE LATER *****</Link>
 
           <Link href='/Home'> Home *** REMOVE LATER *****
 
