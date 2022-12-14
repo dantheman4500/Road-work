@@ -23,7 +23,7 @@ import Login from "./pages/Login"
 // import Friends from './pages/Friends';
 import SingleFriend from './pages/SingleFriend';
 import SearchBar from './components/SearchBar';
-
+import SignUp from './pages/signUp';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -57,30 +57,35 @@ function App() {
             <Grid minH="100vh" p={3}>
               <ColorModeSwitcher justifySelf="flex-end" />
               <VStack spacing={8}>
-                <div className="flex-column justify-flex-start min-100-vh">
-                  <div className="container">
-                    <Routes>
-                      <Route
-                        path="/"
-                        element={<Login />}
-                      />
-                      <Route
-                        path="/login"
-                        element={<Login />}
-                      />
-                      <Route
-                        path="/profile"
-                        element={<Profile />}
-                      />
-                      <Route
-                        path="/friends"
-                        element={<SearchBar />}
-                      />
-                      <Route
-                        path="/friends/:profileId"
-                        element={<SingleFriend />}
-                      />
-                    </Routes>
+                  <div className="flex-column justify-flex-start min-100-vh">
+                    <div className="container">
+                      <Routes>
+                        <Route 
+                          path="/" 
+                          element={<Login/>} 
+                        />
+                        <Route 
+                          path="/login" 
+                          element={<Login/>} 
+                        />
+                        <Route 
+                          path="/profile" 
+                          element={<Profile/>} 
+                        />
+                        <Route 
+                          path="/friends" 
+                          element={<Friends/>} 
+                        />
+                        <Route 
+                          path="/friends/:profileId" 
+                          element={<SingleFriend/>} 
+                        />
+                        <Route 
+                          path="/signUp" 
+                          element={<SignUp/>} 
+                        />                         
+                      </Routes>
+                    </div>
                   </div>
                 </div>
               </VStack>

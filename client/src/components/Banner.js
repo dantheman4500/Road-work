@@ -11,7 +11,7 @@ function Banner() {
             <Image
               boxSize='60px'
               src='https://i.postimg.cc/TPXj84Sc/bee.png'
-              alt='Dan Abramov'
+              alt='Bee My Friend Logo'
             />
           </Center>
           <Center>
@@ -37,6 +37,18 @@ function Banner() {
       <Box>
         <Text>
           <Link href='/friends'> View all Friends *** REMOVE LATER *****
+          </Link>
+        </Text>
+      </Box>
+      <Box>
+        <Text>
+          <Link href='/Home'> Log Out *** REMOVE LATER *****
+          </Link>
+        </Text>
+      </Box>
+            <Box>
+        <Text>
+          <Link href='/SignUp'> SignUp *** REMOVE LATER *****
           </Link>
         </Text>
       </Box>
