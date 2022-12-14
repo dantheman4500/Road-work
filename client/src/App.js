@@ -7,6 +7,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 // import statement for Chakra UI components
 import {
   ChakraProvider,
@@ -24,6 +25,7 @@ import Login from "./pages/Login"
 import SingleFriend from './pages/SingleFriend';
 import SearchBar from './components/SearchBar';
 import SignUp from './pages/signUp';
+import Home from './pages/Home';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -60,9 +62,10 @@ function App() {
                   <div className="flex-column justify-flex-start min-100-vh">
                     <div className="container">
                       <Routes>
+{/* This first route denotes the loading/landing page */}
                         <Route 
                           path="/" 
-                          element={<Login/>} 
+                          element={<Home/>} 
                         />
                         <Route 
                           path="/login" 
@@ -83,6 +86,10 @@ function App() {
                         <Route 
                           path="/signUp" 
                           element={<SignUp/>} 
+                        />
+                        <Route 
+                          path="/Home" 
+                          element={<Home/>} 
                         />                         
                       </Routes>
                     </div>
