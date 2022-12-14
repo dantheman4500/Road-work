@@ -7,6 +7,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 // import statement for Chakra UI components
 import {
   ChakraProvider,
@@ -20,10 +21,17 @@ import { ColorModeSwitcher } from './ColorModeSwitcher';
 import Banner from './components/Banner';
 import Profile from './pages/Profile';
 import Login from "./pages/Login"
-import Friends from './pages/Friends';
+// import Friends from './pages/Friends';
 import SingleFriend from './pages/SingleFriend';
+
 import Donate from './pages/Donate';
 import Success from './pages/Success';
+import SearchBar from './components/SearchBar';
+import SignUp from './pages/signUp';
+import ProfileUpdate from './pages/ProfileUpdate';
+// import UserProfile from './components/UserProfile';
+import Home from './pages/Home';
+
 
 
 const httpLink = createHttpLink({
@@ -52,7 +60,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <ChakraProvider theme={theme}>
-      <Banner />
+        <Banner />
         <Router>
           <Box textAlign="center" fontSize="xl">
             <Grid minH="100vh" p={3}>
@@ -61,9 +69,10 @@ function App() {
                   <div className="flex-column justify-flex-start min-100-vh">
                     <div className="container">
                       <Routes>
+{/* This first route denotes the loading/landing page */}
                         <Route 
                           path="/" 
-                          element={<Login/>} 
+                          element={<Home/>} 
                         />
                         <Route 
                           path="/login" 
@@ -74,8 +83,12 @@ function App() {
                           element={<Profile/>} 
                         />
                         <Route 
+                          path="/profile-update" 
+                          element={<ProfileUpdate/>} 
+                        />
+                        <Route 
                           path="/friends" 
-                          element={<Friends/>} 
+                          element={<SearchBar/>} 
                         />
                         <Route 
                           path="/friends/:profileId" 
@@ -89,6 +102,15 @@ function App() {
                         path='/success'
                         element={<Success/>}
                         />                   
+
+                        <Route 
+                          path="/signUp" 
+                          element={<SignUp/>} 
+                        />
+                        <Route 
+                          path="/Home" 
+                          element={<Home/>} 
+                        />                         
                       </Routes>
                     </div>
                   </div>

@@ -1,17 +1,11 @@
 {
   "name": "bee-myfirend",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
+  "private": true,
   "main": "server/server.js",
-  "scripts": {
-    "start": "node server/server.js",
-    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
-  },
   "dependencies": {
-    "@chakra-ui/react": "^1.8.9",
+    "@chakra-ui/react": "^1.6.6",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@stripe/stripe-js": "^1.46.0",
@@ -25,6 +19,13 @@
     "react-icons": "^3.11.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
   },
   "keywords": [],
   "author": "",

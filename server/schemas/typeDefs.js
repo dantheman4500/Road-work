@@ -19,6 +19,8 @@ const typeDefs = gql`
     profiles: [Profile]!
     profile(profileId: ID!): Profile
     me: Profile
+    findProfileByName(profileName: String!): Profile
+    findProfileByInterest(profileInterest: String!): [Profile]
   }
 
   type Checkout {

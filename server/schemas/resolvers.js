@@ -25,10 +25,17 @@ const resolvers = {
       const url = new URL(context.headers.referer).origin;
       const line_items = [];
       const products = [...args.products];
-      
       console.log(products);
       // have an array of products
       // array has name, description, id, and price
+    findProfileByName: async (parent, { profileName }) => {
+      return Profile.findOne({ name: profileName });
+    },
+    findProfileByInterest: async (parent, { profileInterest }) => {
+      return Profile.find({ interests: profileInterest });
+    },
+  },
+
 
       for (let i = 0; i < products.length; i++) {
         const product = await stripe.products.create({

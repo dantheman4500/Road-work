@@ -86,7 +86,7 @@ const Login = (props) => {
                     value={formState.password}
                     onChange={handleChange}
                   />
-                  <FormHelperText> Make Sure you don't forget your password.</FormHelperText>
+                  <FormHelperText> Make sure you don't forget your password.</FormHelperText>
                 </FormControl>
                 <br />
                 <Button

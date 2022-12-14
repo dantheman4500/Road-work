@@ -1,4 +1,5 @@
 import React from 'react';
+
 // imported from chakra UI
 import { Box, Image, Text, Center, Link } from '@chakra-ui/react'
 
@@ -11,7 +12,7 @@ function Banner() {
             <Image
               boxSize='60px'
               src='https://i.postimg.cc/TPXj84Sc/bee.png'
-              alt='Dan Abramov'
+              alt='Bee My Friend Logo'
             />
           </Center>
           <Center>
@@ -30,7 +31,16 @@ function Banner() {
       </Box>
       <Box>
         <Text>
-          <Link href='/'> Home *** REMOVE LATER *****
+
+          <Link href='/profile-update'>Edit Profile</Link>
+        </Text>
+      </Box>
+      <Box>
+        <Text>
+          <Link href='/'> Home *** REMOVE LATER *****</Link>
+
+          <Link href='/Home'> Home *** REMOVE LATER *****
+
           </Link>
         </Text>
       </Box>
@@ -42,7 +52,14 @@ function Banner() {
       </Box>
       <Box>
         <Text>
-          <Link href='/donate'> go to donation Page *** REMOVE LATER *****
+          <Link href='/donate'> go to donation Page *** REMOVE LATER ***** </Link>
+          <Link href='/Home'> Log Out *** REMOVE LATER *****
+          </Link>
+        </Text>
+      </Box>
+            <Box>
+        <Text>
+          <Link href='/SignUp'> SignUp *** REMOVE LATER *****
           </Link>
         </Text>
       </Box>
