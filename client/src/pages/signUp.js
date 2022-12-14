@@ -101,6 +101,8 @@ const SignUp = (props) => {
               <FormControl id="password">
                 <FormLabel>Password</FormLabel>
                 <Input type="password"
+                name='password'
+                placeholder='**********'
                   onChange={handleChange} />
               </FormControl>
               <Stack spacing={10}>

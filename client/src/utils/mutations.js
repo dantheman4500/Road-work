@@ -33,16 +33,6 @@ export const LOGIN_USER = gql`
   }
 `;
 
-export const ADD_PROFILE = gql`
-  mutation addProfile($name: String!) {
-    addProfile(name: $name) {
-      _id
-      name
-      skills
-    }
-  }
-`;
-
 export const ADD_ORDER = gql`
   mutation addOrder($products: [ID]!) {
     addOrder(products: $products) {
