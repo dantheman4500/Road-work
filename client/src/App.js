@@ -20,10 +20,10 @@ import { ColorModeSwitcher } from './ColorModeSwitcher';
 import Banner from './components/Banner';
 import Profile from './pages/Profile';
 import Login from "./pages/Login"
-import Friends from './pages/Friends';
+// import Friends from './pages/Friends';
 import SingleFriend from './pages/SingleFriend';
+import SearchBar from './components/SearchBar';
 import SignUp from './pages/signUp';
-
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -51,7 +51,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <ChakraProvider theme={theme}>
-      <Banner />
+        <Banner />
         <Router>
           <Box textAlign="center" fontSize="xl">
             <Grid minH="100vh" p={3}>
@@ -87,6 +87,7 @@ function App() {
                       </Routes>
                     </div>
                   </div>
+                </div>
               </VStack>
             </Grid>
           </Box>
