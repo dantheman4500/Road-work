@@ -1,5 +1,8 @@
 import React from 'react';
-
+import SideBar from '../components/Sidebar';
+import auth from '../utils/auth';
+import { useQuery } from '@apollo/client';
+import { QUERY_SINGLE_PROFILE } from '../utils/queries';
 // imported from chakra UI
 import {
   Box,
@@ -20,10 +23,19 @@ import {
 } from '@chakra-ui/react';
 
 function Profile() {
+  let userProfile = auth.getProfile();
+  let profileId = userProfile.data._id;
+  const { loading, data } = useQuery(QUERY_SINGLE_PROFILE, {
+    variables: { profileId: profileId },
+  });
+  const profile = data?.profile || {};
+  console.log(profile.interests)
+
   return (
     <div>
+      <SideBar />
       <Center>
-        <Box bg='orange.400' w='50%' p={4} color='white' borderRadius='full'>
+        <Box bg='orange.300' w='50%' p={4} borderRadius='full'>
           Your Profile
         </Box>
       </Center>
@@ -47,7 +59,7 @@ function Profile() {
                   bg: 'orange.400',
                   zIndex: -1,
                 }}>
-                Placeholder for name
+                {profile.name}
               </Text>
               <br />{' '}
               <Text color={'orange.400'} as={'span'}>
@@ -70,19 +82,12 @@ function Profile() {
                 </Text>
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                   <List spacing={2}>
-                    <ListItem>Sports</ListItem>
-                    <ListItem>Coding</ListItem>{' '}
-                    <ListItem>Hiking</ListItem>
-                  </List>
-                  <List spacing={2}>
-                    <ListItem>Coffee</ListItem>
-                    <ListItem>Long walks</ListItem>
-                    <ListItem>Reading</ListItem>
+                    {profile.interests.map((interest) => <Text>{interest}</Text>)}
                   </List>
                 </SimpleGrid>
               </Box>
             </Stack>
-            <Link href='/ProfileUpdate'><Button rounded={'full'}>Edit your interests</Button></Link>
+            {/* <Link href='/ProfileUpdate'><Button rounded={'full'}>Edit your interests</Button></Link> */}
           </Stack>
         </Flex>
         <Flex flex={1}>

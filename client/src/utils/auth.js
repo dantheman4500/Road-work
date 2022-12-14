@@ -25,7 +25,7 @@ class AuthService {
 
   login(idToken) {
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/profile');
+    window.location.assign('/');
   }
 
   logout() {
@@ -35,3 +35,5 @@ class AuthService {
 }
 
 export default new AuthService();
+
+

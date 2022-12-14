@@ -23,7 +23,6 @@ import Profile from './pages/Profile';
 import Login from "./pages/Login"
 // import Friends from './pages/Friends';
 import SingleFriend from './pages/SingleFriend';
-
 import Donate from './pages/Donate';
 import Success from './pages/Success';
 import SearchBar from './components/SearchBar';
@@ -39,9 +38,7 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
-  // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
