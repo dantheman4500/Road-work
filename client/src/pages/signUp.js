@@ -106,11 +106,48 @@ const SignUp = (props) => {
                   onChange={handleChange} />
               </FormControl>
               <Stack spacing={10}>
+              <FormControl spacing={5}>
+                <FormLabel>What interests you?</FormLabel>
+                <Stack spacing={5} direction='row'>
+                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
+                    food
+                  </Checkbox>
+                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
+                    travel
+                  </Checkbox>
+                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
+                    games
+                  </Checkbox>
+                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
+                    reading
+                  </Checkbox>
+                </Stack>
+                <Stack spacing={5} direction='row'>
+                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
+                    art
+                  </Checkbox>
+                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
+                    computers
+                  </Checkbox>
+                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
+                    sports
+                  </Checkbox>
+                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
+                    coding
+                  </Checkbox>
+                </Stack>
+              </FormControl>
+              <FormControl>
+              <Stack spacing={3}>
+                <FormLabel>Tell us a little about yourself...</FormLabel>
+                <Input size='lg' />
+              </Stack>
+              </FormControl>
                 <Stack
                   direction={{ base: 'column', sm: 'row' }}
                   align={'start'}
                   justify={'space-between'}>
-                  <Checkbox>Remember me</Checkbox>
+                  <Checkbox colorScheme={'orange'}>Remember me</Checkbox>
                 </Stack>
                 <Button
                   bg='tomato'
