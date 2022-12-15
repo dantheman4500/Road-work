@@ -24,12 +24,17 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  image: {
+  userBio: {
     type: String
+  },
+  image: {
+    type: String,
+    default: "https://i.postimg.cc/TPXj84Sc/bee.png"
   },
   interests: [
     {
-      type: String
+      type: String,
+      default: "coding"
     }
   ]
 });

@@ -8,6 +8,7 @@ const typeDefs = gql`
     email: String
     password: String
     image: String
+    userBio: String
     interests: [String]
   }
 
@@ -36,7 +37,7 @@ const typeDefs = gql`
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    createProfile(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    createProfile(firstName: String!, lastName: String!, email: String!, password: String!, userBio: String!, interests: [String]!): Auth
     
   }
 `;

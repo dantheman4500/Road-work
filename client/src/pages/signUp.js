@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-
 // Import styling from Chakra UI 
 import {
   Flex,
@@ -22,8 +21,18 @@ import {
 
 // Signup props and logic for sign-up
 const SignUp = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState(
+    {
+      email: '',
+      password: '',
+    });
+
   const [createProfile] = useMutation(ADD_USER);
+
+  const [userInterest, setUserInterest] = useState({
+    interests: [],
+    options: []
+  })
 
   // Signup logic to submit form
   const handleFormSubmit = async (event) => {
@@ -34,6 +43,8 @@ const SignUp = (props) => {
         lastName: formState.lastName,
         email: formState.email,
         password: formState.password,
+        userBio: formState.userBio,
+        interests: userInterest.interests
       },
     });
     console.log("test")
@@ -49,6 +60,25 @@ const SignUp = (props) => {
       [name]: value,
     });
   };
+
+  const handleCheckboxes = (e) => {
+    const { value, checked } = e.target;
+    const { interests } = userInterest;
+    console.log(`${value} is ${checked}`);
+    if (checked) {
+      setUserInterest({
+        interests: [...interests, value],
+        options: [...interests, value],
+      });
+    }
+    else {
+      setUserInterest({
+        interests: interests.filter((e) => e !== value),
+        options: interests.filter((e) => e !== value),
+      });
+    }
+    console.log(interests)
+  }
 
   return (
     <Flex
@@ -101,48 +131,55 @@ const SignUp = (props) => {
               <FormControl id="password">
                 <FormLabel>Password</FormLabel>
                 <Input type="password"
-                name='password'
-                placeholder='**********'
+                  name='password'
+                  placeholder='**********'
                   onChange={handleChange} />
               </FormControl>
               <Stack spacing={10}>
-              <FormControl spacing={5}>
-                <FormLabel>What interests you?</FormLabel>
-                <Stack spacing={5} direction='row'>
-                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
-                    food
-                  </Checkbox>
-                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
-                    travel
-                  </Checkbox>
-                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
-                    games
-                  </Checkbox>
-                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
-                    reading
-                  </Checkbox>
-                </Stack>
-                <Stack spacing={5} direction='row'>
-                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
-                    art
-                  </Checkbox>
-                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
-                    computers
-                  </Checkbox>
-                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
-                    sports
-                  </Checkbox>
-                  <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'}>
-                    coding
-                  </Checkbox>
-                </Stack>
-              </FormControl>
-              <FormControl>
-              <Stack spacing={3}>
-                <FormLabel>Tell us a little about yourself...</FormLabel>
-                <Input size='lg' />
-              </Stack>
-              </FormControl>
+                <FormControl spacing={5}>
+                  <FormLabel>What interests you?</FormLabel>
+                  <Stack spacing={5} direction='row'>
+                    <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'} onChange={handleCheckboxes} name="interests" type="checkbox" value="food">
+                      food
+                    </Checkbox>
+                    <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'} onChange={handleCheckboxes} name="interests" value="travel" type="checkbox">
+                      travel
+                    </Checkbox>
+                    <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'} onChange={handleCheckboxes} name="interests" value="games" type="checkbox">
+                      games
+                    </Checkbox>
+                    <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'} onChange={handleCheckboxes} name="options" value="reading" type="checkbox">
+                      reading
+                    </Checkbox>
+                  </Stack>
+                  <Stack spacing={5} direction='row'>
+                    <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'} onChange={handleCheckboxes} name="options" value="art" type="checkbox">
+                      art
+                    </Checkbox>
+                    <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'} onChange={handleCheckboxes} name="options" value="computers" type="checkbox">
+                      computers
+                    </Checkbox>
+                    <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'} onChange={handleCheckboxes} name="options" value="sports" type="checkbox">
+                      sports
+                    </Checkbox>
+                    <Checkbox colorScheme='orange' defaultunChecked textTransform={'uppercase'} onChange={handleCheckboxes} name="options" value="coding" type="checkbox">
+                      coding
+                    </Checkbox>
+                  </Stack>
+                </FormControl>
+                <FormControl id="userBio">
+                  <Stack spacing={3}>
+                    <FormLabel>Tell us a little about yourself...</FormLabel>
+                    <Input
+                      size='lg'
+                      type="userBio"
+                      name="userBio"
+                      value={formState.userBio}
+                      placeholder="I love bees because they are such hard workers!!"
+                      onChange={handleChange}
+                    />
+                  </Stack>
+                </FormControl>
                 <Stack
                   direction={{ base: 'column', sm: 'row' }}
                   align={'start'}
