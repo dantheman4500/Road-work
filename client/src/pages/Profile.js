@@ -22,6 +22,8 @@ function Profile() {
     variables: { profileId: profileId },
   });
   const profile = data?.profile || {};
+  console.log(profileId)
+  console.log(profile)
   console.log(profile.interests)
 
   if (loading) {
@@ -30,7 +32,7 @@ function Profile() {
 
   return (
     <div>
-      
+
       <Center>
         <Box bg='orange.300' w='50%' p={4} borderRadius='full'>
           Your Profile
@@ -55,16 +57,15 @@ function Profile() {
                   bg: 'orange.400',
                   zIndex: -1,
                 }}>
-                {profile.name}
+                Welcome, {profile.firstName} {profile.lastName}!
               </Text>
               <br />{' '}
-              <Text color={'orange.400'} as={'span'}>
+              {/* <Text color={'orange.400'} as={'span'}>
                 Bio
-              </Text>{' '}
+              </Text>{' '} */}
             </Heading>
             <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}>
-              The project board is an exclusive resource for contract work. It's
-              perfect for freelancers, agencies, and moonlighters.
+              {profile.userBio}
             </Text>
             <Stack direction={{ base: 'column', md: 'row' }} spacing={4} align={'center'} justify={'center'}>
               <Box>
