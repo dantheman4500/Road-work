@@ -31,16 +31,17 @@ import ProfileUpdate from './pages/ProfileUpdate';
 // import UserProfile from './components/UserProfile';
 import SideBar from './components/Sidebar';
 import Home from './pages/Home';
+import Logout from './components/Logout' 
 
 const httpLink = createHttpLink({
   uri: '/graphql'
 });
 
-const authLink = setContext((_, { headers }) => {
+const authLink = setContext((_, { logout }) => {
   const token = localStorage.getItem('id_token');
   return {
-    headers: {
-      ...headers,
+    logout: {
+      ...logout,
       authorization: token ? `Bearer ${token}` : '',
     },
   };
@@ -103,7 +104,11 @@ function App() {
                           path="signup" 
                           element={<SignUp/>} 
                         />                       
-                      </Routes>
+                        <Route
+                          path='logout'
+                          element={<Logout/>}
+                        />
+                        </Routes>
                     </div>
                   </div>
               </VStack>

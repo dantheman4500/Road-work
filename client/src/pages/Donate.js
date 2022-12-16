@@ -1,5 +1,5 @@
 
-import { Button, Stack} from '@chakra-ui/react';
+import { Button, Stack, Container} from '@chakra-ui/react';
 import { Link } from 'react-router-dom'
 import "./styles.css"
 import { useLazyQuery } from '@apollo/client';
@@ -46,6 +46,12 @@ function submitCheckout(amount) {
   return (
     
 <div>
+  <Container size='5xl'>
+    dfasfffffffffffffffffffffffffffffffff
+    ffffffffffffffffffffffffffffffffffff
+    fffffffffffffffffffffffffffffffffffffffffffffffff
+    fffffffffffffffffffffffffffffffffffffffffffffffff
+  </Container>
 <Link className='backButton' to="/profile"><Button className='btn' backgroundColor='orange.300' >← Back</Button></Link>
 <Stack spacing={4} direction='row' align='center' size='md'>
   <Button  onClick={ ()=>submitCheckout(5)} className='btn' backgroundColor='orange.300' size='lg'>$5.00</Button>
