@@ -3,7 +3,8 @@ import React from 'react';
 import auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_PROFILE } from '../utils/queries';
-// imported from chakra UI
+
+// Import elements from chakra UI
 import {
   Box,
   Image,
@@ -32,9 +33,8 @@ function Profile() {
 
   return (
     <div>
-
       <Center>
-        <Box bg='orange.300' w='50%' p={4} borderRadius='full'>
+        <Box bg='orange.300' w='100%' p={4} borderRadius='full'>
           Your Profile
         </Box>
       </Center>
