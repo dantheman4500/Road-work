@@ -19,6 +19,9 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    findProfileByInterest: async (parent, { profileInterest }) => {
+      return Profile.find({ interests: profileInterest });
+    },
     checkout: async (parent, args, context) => {
       // const url = new URL("https://google.com");
       console.log(context.headers.referer);

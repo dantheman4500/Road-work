@@ -48,9 +48,9 @@ function SideBar() {
                         <br />
                         <Text><Link href='/donate'> Support Us!</Link></Text>
                         <br />
-                        <Text><Link href='/SignUp'> Sign Up</Link></Text>
+                        <Text><Link href='/signup'> Sign Up</Link></Text>
                         <br />
-                        <Text><Link href='/Home'> Log Out</Link></Text>
+                        <Text><Link href='/'> Log Out</Link></Text>
                     </DrawerBody>
 
                     <DrawerFooter>
