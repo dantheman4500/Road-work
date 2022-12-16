@@ -3,7 +3,8 @@ import React from 'react';
 import auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_PROFILE } from '../utils/queries';
-// imported from chakra UI
+
+// Import elements from chakra UI
 import {
   Box,
   Image,
@@ -32,9 +33,8 @@ function Profile() {
 
   return (
     <div>
-
       <Center>
-        <Box bg='orange.300' w='50%' p={4} borderRadius='full'>
+        <Box bg='orange.300' w='100%' p={4} borderRadius='full'>
           Your Profile
         </Box>
       </Center>
@@ -77,7 +77,7 @@ function Profile() {
                   mb={'14'}>
                   Interests
                 </Text>
-                {profile.interests.map((interest) => <Text
+                {profile.interests?.map((interest) => <Text
                   fontSize={{ base: '16px', lg: '18px' }}
                   fontWeight={'500'}
                   textTransform={'uppercase'}
@@ -95,7 +95,7 @@ function Profile() {
             borderRadius='full'
             boxSize='550px'
             src={
-              'https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+              'https://images.unsplash.com/photo-1492567291473-fe3dfc175b45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=684&q=80'
             }
           />
         </Flex>
