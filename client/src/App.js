@@ -105,7 +105,7 @@ function App() {
                           element={<SignUp/>} 
                         />                       
                         <Route
-                          path='logout'
+                          path='/logout'
                           element={<Logout/>}
                         />
                         </Routes>
