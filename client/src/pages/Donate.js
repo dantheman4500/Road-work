@@ -44,6 +44,7 @@ function submitCheckout(amount) {
 }
 
   return (
+    
 <div>
 <Link className='backButton' to="/profile"><Button className='btn' backgroundColor='orange.300' >← Back</Button></Link>
 <Stack spacing={4} direction='row' align='center' size='md'>

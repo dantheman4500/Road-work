@@ -77,7 +77,7 @@ function Profile() {
                   mb={'14'}>
                   Interests
                 </Text>
-                {profile.interests.map((interest) => <Text
+                {profile.interests?.map((interest) => <Text
                   fontSize={{ base: '16px', lg: '18px' }}
                   fontWeight={'500'}
                   textTransform={'uppercase'}
