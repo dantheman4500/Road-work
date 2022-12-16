@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // import { updateUser } from '../components/UserProfile';
 import { useMutation } from '@apollo/client';
 // import { USER_UPDATE_REQUEST } from '../utils/actions';
-import { UPDATE_USER } from '../utils/mutations';
+import { UPDATE_USER, DELETE_PROFILE } from '../utils/mutations';
 import Auth from '../utils/auth';
 // imported from chakra UI
 import {
@@ -21,50 +21,85 @@ import {
   Stack,
   Text,
   useBreakpointValue,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter
 } from '@chakra-ui/react';
 
 const UpdateProfile = (props) => {
 
-  const [formState, setFormState] = useState({ 
-    firstName: '',
-    lastName: '', 
-    email: '', 
-    password: '' 
-  });
-  const [updateUser] = useMutation(UPDATE_USER);
-  
-    // //Get the user from localstorage and pass to the initial states
-    // const userLogin = useSelector(state => state.userLogin);
-    // const { userInfo } = userLogin;
-    // console.log(userInfo);
-  
-    // //dispatch
-    // const dispatch = useDispatch();
-    //submit
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
+  // const [formState, setFormState] = useState({
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   password: ''
+  // });
+  // const [updateUser] = useMutation(UPDATE_USER);
 
-      const mutationResponse = await updateUser({
+  const [removeProfile, { error }] = useMutation(DELETE_PROFILE);
+
+  const handleDeleteProfile = async () => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    const testId = Auth.getProfile();
+    //token
+    console.log(token);
+    //object
+    console.log(testId)
+    //id
+    console.log(testId.data._id)
+    if (!token) {
+      return false;
+    }
+    try {
+      const mutationResponse = await removeProfile({
         variables: {
-          email: formState.email,
-          password: formState.password,
-          firstName: formState.firstName,
-          lastName: formState.lastName,
-        },
-      });
-      const token = mutationResponse.data.addUser.token;
-      Auth.login(token);
-    };
+          profileId: testId.data._id
+        }
 
-    const handleChange = (event) => {
-      const { name, value } = event.target;
-      setFormState({
-        ...formState,
-        [name]: value,
       });
-    };
+    } catch (err) {
+      console.error(error);
+    }
+    Auth.logout();
+  }
 
-    
+  // //Get the user from localstorage and pass to the initial states
+  // const userLogin = useSelector(state => state.userLogin);
+  // const { userInfo } = userLogin;
+  // console.log(userInfo);
+
+  // //dispatch
+  // const dispatch = useDispatch();
+  //submit
+  // const handleFormSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   const mutationResponse = await updateUser({
+  //     variables: {
+  //       email: formState.email,
+  //       password: formState.password,
+  //       firstName: formState.firstName,
+  //       lastName: formState.lastName,
+  //     },
+  //   });
+  //   const token = mutationResponse.data.addUser.token;
+  //   Auth.login(token);
+  // };
+
+  // const handleChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setFormState({
+  //     ...formState,
+  //     [name]: value,
+  //   });
+  // };
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <div>
       <Center>
@@ -72,7 +107,7 @@ const UpdateProfile = (props) => {
           Update Your Profile
         </Box>
       </Center>
-      <Stack direction='row' h='5px'p={4}>
+      <Stack direction='row' h='5px' p={4}>
         <Divider />
       </Stack>
       <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
@@ -96,78 +131,99 @@ const UpdateProfile = (props) => {
                 User Name
               </Text>
             </Heading>
-        {/* <Form > */}
-            <FormControl onSubmit={handleFormSubmit}>
-                <FormLabel>First Name:</FormLabel>
-                <Input
-                    
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="New First Name"
-                    name="firstName"
-                    type="firstName"
-                  />
+            {/* <Form > */}
+            {/* <FormControl onSubmit={handleFormSubmit}> */}
+            <FormControl>
+              <FormLabel>First Name:</FormLabel>
+              <Input
+
+                // onChange={handleChange}
+                className="form-input"
+                placeholder="New First Name"
+                name="firstName"
+                type="firstName"
+              />
             </FormControl>
             <FormControl>
-                <FormLabel>Last Name:</FormLabel>
-                <Input
-                    
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="New Last Name"
-                    name="lastName"
-                    type="lastName"
-                  />
+              <FormLabel>Last Name:</FormLabel>
+              <Input
+
+                // onChange={handleChange}
+                className="form-input"
+                placeholder="New Last Name"
+                name="lastName"
+                type="lastName"
+              />
             </FormControl>
             <FormControl>
-                <FormLabel>Email:</FormLabel>
-                <Input
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="New Email"
-                    name="email"
-                    type="email"
-                  />
+              <FormLabel>Email:</FormLabel>
+              <Input
+                // onChange={handleChange}
+                className="form-input"
+                placeholder="New Email"
+                name="email"
+                type="email"
+              />
             </FormControl>
             <FormControl>
-                <FormLabel>Password:</FormLabel>
-                <Input
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="New password"
-                    name="password"
-                    type="password"
-                  />
+              <FormLabel>Password:</FormLabel>
+              <Input
+                // onChange={handleChange}
+                className="form-input"
+                placeholder="New password"
+                name="password"
+                type="password"
+              />
             </FormControl>
             <FormControl>
-                <FormLabel>Avatar:</FormLabel>
-                <Avatar
-                    size={'xl'}
-                    // src={profile.image}
-                    onChange={handleChange}
-                    alt={'Avatar Alt'}
-                    mb={4}
-                    pos={'relative'}
-                    _after={{
-                        content: '""',
-                        w: 4,
-                        h: 4,
-                        bg: 'green.300',
-                        border: '2px solid white',
-                        rounded: 'full',
-                        pos: 'absolute',
-                        bottom: 0,
-                        right: 3,
-                    }}
-                />
+              <FormLabel>Avatar:</FormLabel>
+              <Avatar
+                size={'xl'}
+                // src={profile.image}
+                // onChange={handleChange}
+                alt={'Avatar Alt'}
+                mb={4}
+                pos={'relative'}
+                _after={{
+                  content: '""',
+                  w: 4,
+                  h: 4,
+                  bg: 'green.300',
+                  border: '2px solid white',
+                  rounded: 'full',
+                  pos: 'absolute',
+                  bottom: 0,
+                  right: 3,
+                }}
+              />
             </FormControl>
             <Link to='/Profile'><Button rounded={'full'} type='submit'>
-                Save Profile
+              Save Profile
             </Button></Link>
-        {/* </Form> */}
+            {/* Delete button modal */}
+            <Button bg={"red.400"} size='lg' onClick={onOpen}>
+              DELETE PROFILE
+            </Button>
+            <Modal isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>Delete Profile?</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  <Text>Are you sure you want to delete your profile? All of your data will be permanently removed.</Text>
+                </ModalBody>
+                <ModalFooter>
+                  <Button bg={"orange.300"} mr={3} onClick={onClose}>
+                    Cancel
+                  </Button>
+                  <Button variant='ghost' bg={"red.400"} onClick={() => handleDeleteProfile()}>Delete profile</Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
+            {/* </Form> */}
           </Stack>
         </Flex>
-        
+
       </Stack>
     </div>
   );

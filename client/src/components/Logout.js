@@ -30,7 +30,7 @@ const Logout = () => {
       <div>
         {Auth.loggedIn() ? (
           <>
-            <Link to="/me">
+            <Link to="/profile">
               <Button bg={'orange.300'}>
                 Take Me Back to My Profile
               </Button>

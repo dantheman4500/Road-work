@@ -84,3 +84,17 @@ export const UPDATE_USER = gql`
   }
 `;
 
+export const DELETE_PROFILE = gql`
+mutation deleteProfile(
+  $profileId: ID!
+) {
+  deleteProfile(
+    profileId: $profileId
+  ) {
+    email
+    _id
+    firstName
+    lastName
+  }
+}
+`
