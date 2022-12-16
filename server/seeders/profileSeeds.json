@@ -1,73 +1,41 @@
 [
-    {
-      "name": "Brian Kernighan",
-      "email": "bkernighan@techfriends.dev",
-      "password": "password01",
-      "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
-      "interests": ["coding", "food"]
-    },
-    {
-      "name": "Max Kanat-Alexander",
-      "email": "mkanatalexander@techfriends.dev",
-      "password": "password02",
-      "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
-      "interests": ["hiking", "food"]
-    },
-    {
-      "name": "Amiko",
-      "email": "amiko@techfriends.dev",
-      "password": "password03",
-      "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
-      "interests": ["coding", "hiking"]
-    },
-    {
-      "name": "Kent Beck",
-      "email": "kbeck@techfriends.dev",
-      "password": "password04",
-      "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
-      "interests": ["sewing", "beach"]
-    },
-    {
-      "name": "Edward V. Berard",
-      "email": "evberard@techfriends.dev",
-      "password": "password05",
-      "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
-      "interests": ["sewing", "hiking"]
-    },
-    {
-      "name": "Alan Kay",
-      "email": "akay@techfriends.dev",
-      "password": "password06",
-      "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
-      "interests": ["coding", "beach"]
-    },
-    {
-      "name": "C.A.R. Hoare",
-      "email": "choare@techfriends.dev",
-      "password": "password07",
-      "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
-      "interests": ["beach", "food"]
-    },
-    {
-      "name": "David Thomas",
-      "email": "dthomas@techfriends.dev",
-      "password": "password08",
-      "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
-      "interests": ["coding", "travel"]
-    },
-    {
-      "name": "Donald Knuth",
-      "email": "dknuth@techfriends.dev",
-      "password": "password09",
-      "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
-      "interests": ["computers", "food"]
-    },
-    {
-      "name": "Lernantino",
-      "email": "lernantino@techfriends.dev",
-      "password": "password10",
-      "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
-      "interests": ["travel", "food"]
-    }
-  ]
-  
+  {
+    "firstName": "Brian",
+    "lastName": "Kernighan",
+    "email": "bkernighan@techfriends.dev",
+    "userBio": "Professor of Computer Science at Princeton University since 2000",
+    "password": "password01",
+    "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
+    "interests": [
+      "coding",
+      "food",
+      "teaching"
+    ]
+  },
+  {
+    "firstName": "Max",
+    "lastName": "Kanat-Alexander",
+    "email": "mkanatalexander@techfriends.dev",
+    "password": "password02",
+    "userBio": "Technical Lead for Code Health at Google and former Chief Architect of the Bugzilla Project",
+    "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
+    "interests": [
+      "hiking",
+      "food",
+      "reading",
+      "writing"
+    ]
+  },
+  {
+    "firstName": "Amiko",
+    "lastName": "B",
+    "email": "amiko@techfriends.dev",
+    "password": "password03",
+    "userBio": "Just a random guy tring to solve problems one at a time!",
+    "image": "https://i.postimg.cc/05FH7GZS/251.jpg",
+    "interests": [
+      "coding",
+      "hiking"
+    ]
+  }
+]

@@ -100,7 +100,7 @@ function App() {
                         element={<Success/>}
                         />                   
                         <Route 
-                          path="/signUp" 
+                          path="signup" 
                           element={<SignUp/>} 
                         />                       
                       </Routes>

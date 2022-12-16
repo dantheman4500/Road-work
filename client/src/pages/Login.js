@@ -92,7 +92,8 @@ const Login = (props) => {
                   height='48px'
                   width='200px'
                   border='2px'
-                  borderColor='tomato'
+                  borderColor='orange.400'
+                  bg="orange.300"
                   type="submit"
                 >
                   Login

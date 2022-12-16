@@ -31,7 +31,6 @@ export const LOGIN_USER = gql`
       token
       profile {
         _id
-        name
       }
     }
   }

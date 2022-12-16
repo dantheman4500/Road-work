@@ -47,9 +47,9 @@ export const QUERY_INTEREST = gql`
   query findProfileByInterest($profileInterest: String!) {
     findProfileByInterest(profileInterest: $profileInterest) {
       _id
-      name
       interests
-      image
+      firstName
+      lastName
     }
   }
 `;

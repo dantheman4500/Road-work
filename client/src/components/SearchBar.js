@@ -56,7 +56,7 @@ function SearchBar({ onSearchSubmit }) {
                                     objectFit={'cover'}
                                 />
                                 <Flex justify={'center'} mt={-12}>
-                                    <Avatar
+                                    {/* <Avatar
                                         size={'xl'}
                                         src={
                                             profile.image
@@ -65,12 +65,12 @@ function SearchBar({ onSearchSubmit }) {
                                         css={{
                                             border: '2px solid white',
                                         }}
-                                    />
+                                    /> */}
                                 </Flex>
                                 <Box p={6}>
                                     <Stack spacing={0} align={'center'} mb={5}>
                                         <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-                                            {profile.name}
+                                            {profile.firstName}
                                         </Heading>
                                     </Stack>
                                     <Heading fontSize={'xl'} fontWeight={500} fontFamily={'body'}>
