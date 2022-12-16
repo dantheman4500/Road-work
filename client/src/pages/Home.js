@@ -92,7 +92,7 @@ const TestimonialAvatar = ({
 function Home() {
   return (
     <>
-      <Container maxW={'3xl'}>
+      <Container maxW={'4xl'}>
         <Stack
           as={Box}
           textAlign={'center'}
@@ -119,7 +119,9 @@ function Home() {
             />
           </Flex>
           <Text color={'gray.500'}>
-            Insert copy about Bee My Friend Here. Insert copy about Bee My Friend Here.
+          Bee My Friend is your social media application for finding friends with shared interests without all the noise.   
+          Be real. Bee yourself. Bee my friend.
+            
           </Text>
           <Stack
             direction={'column'}
@@ -131,13 +133,13 @@ function Home() {
               <Button
                 colorScheme={'green'}
                 size="lg"
-                bg={'tomato'}
+                bg={'orange.400'}
                 rounded={'full'}
                 px={40}
                 _hover={{
-                  bg: 'gray.500',
+                  bg: 'gray.400',
                 }}>
-              Login
+             <Text fontSize='4xl'>Login</Text> 
               </Button>
             </Link>
             <Button variant={'link'} colorScheme={'blue'} size={'med'}>
@@ -149,9 +151,9 @@ function Home() {
       {/* Playing around with testimonial cards */}
       <br></br><br></br>
       <Box  bg={useColorModeValue('gray.100', 'gray.600')}>
-      <Container maxW={'3xl'} py={15} as={Stack} spacing={12}>
+      <Container maxW={'4xl'} py={15} as={Stack} spacing={12}>
         <Stack spacing={0} align={'center'}>
-          <Heading color='tomato'>Success Stories</Heading>
+          <Heading color='orange.400'>Success Stories</Heading>
           <Text>Check out what our users have to say!</Text>
         </Stack>
         <Stack
@@ -162,6 +164,7 @@ function Home() {
               <TestimonialHeading>Shared Interests</TestimonialHeading>
               <TestimonialText>
                 Bee My Friend matched me with Craig. 
+                The interest feature made it simple to find people who enjoy the same things I do.
                 We clicked right away and now we go to Big Bear every winter! 
               </TestimonialText>
             </TestimonialContent>
@@ -175,9 +178,11 @@ function Home() {
           </Testimonial>
           <Testimonial>
             <TestimonialContent>
-              <TestimonialHeading>Parasocial Relationships</TestimonialHeading>
+              <TestimonialHeading>Distance Means Nothing!
+              </TestimonialHeading>
               <TestimonialText>
                 Working remotely can be lonely. Bee My Friend's messaging function gives me a chance to reconnect with other game lovers like me. 
+                We're planning our first meet up together soon! 
               </TestimonialText>
             </TestimonialContent>
             <TestimonialAvatar
@@ -186,6 +191,23 @@ function Home() {
               }
               name={'Sonic The Hedgehog'}
               title={'Blogger at Game Rewiew'}
+            />
+          </Testimonial>
+          <Testimonial>
+            <TestimonialContent>
+              <TestimonialHeading>Bridging Worlds
+              </TestimonialHeading>
+              <TestimonialText>
+                Bee My Friend connected me with the real world. I felt really misunderstood by my peers and Bee My Friend allowed me to expand my social circle and meet new people.
+                Maybe I even found love? Thanks Bee My Friend! 
+              </TestimonialText>
+            </TestimonialContent>
+            <TestimonialAvatar
+              src={
+                'https://m.media-amazon.com/images/I/41kaqF8uVfL._AC_SY580_.jpg'
+              }
+              name={'Barry B Benson'}
+              title={'A Literal Bee'}
             />
           </Testimonial>
         </Stack>
