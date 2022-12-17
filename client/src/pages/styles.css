@@ -23,4 +23,14 @@
     margin-bottom: 9%;
     align-self: center;
     align-items: center;
-}   
+}
+
+.alert-msg {
+    font-size: medium;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 12px;
+    width: min-content;
+    height: min-content;
+    text-transform: initial;
+}
