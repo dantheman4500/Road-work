@@ -23,10 +23,6 @@ function Profile() {
     variables: { profileId: profileId },
   });
   const profile = data?.profile || {};
-  console.log(profileId)
-  console.log(profile)
-  console.log(profile.interests)
-
   if (loading) {
     return <div>Loading ... Please Wait a Moment</div>
   }

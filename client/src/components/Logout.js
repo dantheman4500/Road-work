@@ -1,3 +1,4 @@
+import { Button, Text, Image } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -9,41 +10,51 @@ const Logout = () => {
     Auth.logout();
   };
 
+  const styles = {
+    btn: {
+      padding: "2%",
+      margin: "1%"
+    },
+    pic: {
+      borderRadius: "2%"
+    }
+
+  }
+
   return (
     <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
-    <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
-      <Link className="text-dark" to="/">
-        <h1 className="m-0" style={{ fontSize: '3rem' }}>
-          Tech Friends
-        </h1>
-      </Link>
-      <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-        Meet your new programming pals.
-      </p>
+      <Image src='https://i.postimg.cc/prh5P4bR/lute-f-YS-YE16-Yb0-unsplash.jpg' style={styles.pic}/>
+      <Text fontSize='4xl'>
+        Are you sure you want to leave?
+      </Text>
       <div>
         {Auth.loggedIn() ? (
           <>
-            <Link className="btn btn-lg btn-primary m-2" to="/me">
-              View My Profile
+            <Link to="/profile">
+              <Button bg={'orange.300'}>
+                Take Me Back to My Profile
+              </Button>
             </Link>
-            <button className="btn btn-lg btn-light m-2" onClick={logout}>
-              Logout
-            </button>
+            <br />
+            <Link>
+              <Button bg={'orange.300'} onClick={logout} style={styles.btn}>
+                I want to Logout
+              </Button>
+            </Link>
           </>
         ) : (
           <>
-            <Link className="btn btn-lg btn-primary m-2" to="/login">
-              Login
-            </Link>
-            <Link className="btn btn-lg btn-light m-2" to="/signup">
-              Signup
+            <Text fontSize='2xl'>
+              Come back soon!
+            </Text>
+            <Link to="/">
+              <Button bg={'orange.300'} style={styles.btn}>Go back to Home</Button>
             </Link>
           </>
         )}
       </div>
-    </div>
-  </header>
-);
+    </header>
+  );
 };
 
 export default Logout;
