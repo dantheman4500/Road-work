@@ -114,3 +114,47 @@ mutation deleteProfile(
   }
 }
 `
+
+const SEND_FRIEND_REQUEST = gql`
+  mutation friendReq($id: ID!) {
+    friendRequest(id: $id) {
+      id
+      friendRequests {
+        id
+      }
+    }
+  }
+`
+
+const ACCEPT_FRIEND_REQUEST = gql`
+  mutation acceptFriendReq($id: ID!) {
+    acceptFriendRequest(ID: $id) {
+      id
+      friendRequests {
+        id
+      }
+      friends {
+        id
+      }
+    }
+  }
+`
+
+const DECLINE_FRIEND_REQUEST = gql`
+  mutation declineFriendRequest($id: ID!) {
+    declineFriendRequest(id: $id) {
+      id
+    }
+  }
+`
+
+const UNFRIEND = gql`
+  mutation unFriend($id: ID!) {
+    unFriend(id: $id) {
+      id
+      friends {
+        id
+      }
+    }
+  }
+`

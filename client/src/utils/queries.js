@@ -53,3 +53,90 @@ export const QUERY_INTEREST = gql`
     }
   }
 `;
+
+export const GET_USERS = gql `
+  query users {
+    Profile {
+      Profile {
+        id
+        friendRequests {
+          id
+          createdAt
+        }
+        friends {
+          id
+          createdAt
+        }
+      }
+    }
+  }
+`;
+
+export const GET_USER_BY_ID = gql `
+  query getUserById($id: ID!) {
+    userById(id: $id) {
+      query getUserById($profileId: ID!) {
+        profile(profileId: $profileId) {
+          _id
+          firstName
+          lastName
+          email
+          userBio
+          interests
+          image
+        friendRequests {
+          id
+          userId
+          firstName
+          createdAt
+        }
+        friends {
+          id
+          firstName
+          userId
+          createdAt
+        }
+      }
+    }
+  }
+}
+`;
+export const CURRENT_USER = gql `
+  query currentUser {
+    currentUser {
+      Profile {
+        id
+        name
+      }
+    }
+  }
+`;
+
+
+export const GET_FRIEND_REQUESTS = gql `
+  query getFriendRequests($id: ID!) {
+    userById(id: $id) {
+      Profile {
+        friendRequests {
+          id
+          userId
+          createdAt
+        }
+      }
+    }
+  }
+`;
+
+export const GET_CONVERSATIONS_OF_A_USER = gql`
+  query getConversations($profileId: ID!) {
+    profile(profileId: $profileId) {
+      _id
+      members {
+        sender
+        receiver
+      }
+      createdAt
+    }
+  }
+`
+

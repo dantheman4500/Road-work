@@ -37,7 +37,23 @@ const profileSchema = new Schema({
       required: false,
       default: "coding"
     }
-  ]
+  ],
+  friendRequests: [
+    {
+      userId: String,
+      name: String,
+      createdAt: String,
+      required: false,
+    },
+  ],
+  friends: [
+    {
+      userId: String,
+      name: String,
+      createdAt: String,
+      required: false,
+    },
+  ],
 });
 
 //* set up pre-save middleware to create password

@@ -110,7 +110,6 @@ function Home() {
           <Flex flex={1}>
             <Image
               alt={'Landing Page Image'}
-              imageAlign={'center'}
               objectFit={'cover'}
               borderRadius='full'
               src={

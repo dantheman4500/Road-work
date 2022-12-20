@@ -26,13 +26,13 @@ import SingleFriend from './pages/SingleFriend';
 import Donate from './pages/Donate';
 import Success from './pages/Success';
 import SearchBar from './components/SearchBar';
-import SignUp from './pages/SignUp';
+import SignUp from './pages/signUp';
 import ProfileUpdate from './pages/ProfileUpdate';
 // import UserProfile from './components/UserProfile';
 import SideBar from './components/Sidebar';
 import Home from './pages/Home';
-import Logout from './components/Logout'
-
+import Logout from './components/Logout';
+import Chat from "./pages/chat/[id]" 
 const httpLink = createHttpLink({
   uri: '/graphql'
 });
@@ -105,6 +105,10 @@ function App() {
                   <Route
                     path='/logout'
                     element={<Logout />}
+                  />
+                  <Route
+                    path="/Chat"
+                    element={<Chat />}
                   />
                 </Routes>
               </VStack>
